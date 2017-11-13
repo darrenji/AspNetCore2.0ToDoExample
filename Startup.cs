@@ -30,7 +30,8 @@ namespace AspNetCoreTodo
             //放到service container中
             //AddScoped针对每个请求会产生一个ITodoItemService实例
             //AddSingleton是当application启动起来以后，只产生一个ITodoItemService
-            services.AddScoped<ITodoItemService, FakeTodoItemService>();
+            //services.AddScoped<ITodoItemService, FakeTodoItemService>();
+            services.AddScoped<ITodoItemService, TodoItemService>();
 
             //ApplicationDbContext被放到了service container中
             services.AddDbContext<ApplicationDbContext>(options =>
