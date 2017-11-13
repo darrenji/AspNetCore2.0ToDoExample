@@ -40,5 +40,12 @@ namespace AspNetCoreTodo.Controllers
             }
             return Ok();
         }
+
+        public async Task<IActionResult> MarkDone(int id)
+        {
+            var successful = await _todoItemService.MarkDoneAsync(id);
+            if (!successful) return BadRequest();
+            return Ok();
+        }
     }
 }
